@@ -10,17 +10,36 @@
 
 //const http=require('http');
 const express=require('express');
+const bodyparser=require('body-parser');
 const app=express(); ///// express function express framework, all about middleware
-app.use((req,res,next)=>{
-    console.log('in the middleware');
-    next(); ////we have to call next to allow the request to travel on the next middleware in the line
 
-}); ///to add new middleware function,will be executed for every request, next is a function, has to be excuted to allow the request to travel to the next req
-app.use((req,res,next)=>{
-    console.log('in another the middleware');
-    res.send("<h1> HELLO FROM EXPRESS</h1>"); ///allows us to send response of type ay
+const adminroutes=require('./routes/admin.js');
+const clientroutes=require('./routes/shop.js');
+
+// app.use((req,res,next)=>{
+//     console.log('in the middleware');
+//     next(); ////we have to call next to allow the request to travel on the next middleware in the line
+
+// }); ///to add new middleware function,will be executed for every request, next is a function, has to be excuted to allow the request to travel to the next req
+
+app.use(bodyparser.urlencoded({extended:false}));
+app.use(clientroutes);
+app.use(adminroutes);
+
+// app.use('/add-product',(req,res,next)=>{
+//     res.send('<form action="/product" method="POST"><input type="text" name="title"><button type="submit">Add Product</button></form>')
+//     //res.send("<h1> Product Page</h1>"); ///allows us to send response of type ay
    
-});
+// });
+// app.use("/product",(req,res,next)=>{
+//     console.log(req.body);
+//     res.redirect('/'); 
+// });
+// app.post("/product",(req,res,next)=>{
+//     console.log(req.body);
+//     res.redirect('/'); 
+// });
+
 app.listen(3000);
 // const server=http.createServer(app);
 // server.listen(3000); /////starts a process will keep running to listen incoming request

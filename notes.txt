@@ -1,0 +1,17 @@
+-----parse incoming request body in express----
+to parse incoming request in express js we install the third part
+package npm install --save body-parser
+
+body oaser will not parse complete data type but it will parse body from the from
+
+we have to use it at the top of our middleware in all middleware section
+
+----limiting middleware execution to post request----
+app get allows us to filter from the get request
+and same as app.post if changed to post or get then it fire was that request only
+but if we use app.use then it can be used for post and get request
+
+
+------using express router-----
+to separate the routes logic we use the express js router function in the route js file
+exact matching is done by get method not only method but path
