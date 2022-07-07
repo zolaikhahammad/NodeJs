@@ -15,3 +15,25 @@ but if we use app.use then it can be used for post and get request
 ------using express router-----
 to separate the routes logic we use the express js router function in the route js file
 exact matching is done by get method not only method but path
+
+-----add 404 page ----
+request goes to top to bottom
+app .use handle all type of request we cann add 404 by add ng middleware at the end using .use()
+
+---filter path-----
+all out source path have some common relative path  same path can be used for different methods
+put a coomon segment at the start of our path
+
+---creating html page-----
+to send the html page in response we use the sendfile method but the path must be
+exported from the module path with the join
+join yeilds us a path in the end but it constructs a path by
+concatenating different segments, first segment is __ understodd
+by node js globally
+direname holds an absolute path on our operating system to the project folder
+../ means go up one level
+
+----serve files statically---
+directly forware to file system
+
+
