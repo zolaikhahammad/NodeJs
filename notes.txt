@@ -37,3 +37,19 @@ direname holds an absolute path on our operating system to the project folder
 directly forware to file system
 
 
+----sharing data across request & users
+data is inherent to node server and shared across the users in the browser
+
+---template engines-----
+
+htmlish template=> node express content / template engine (scans html and replace placeholders with html content)
+=> dynamic htmk file generated and send to the users
+Available engine:
+EJS, PUG(Jade), HandleBars
+
+
+---insalling and implemeneting pug-----
+npm install --save ejs pug express-handlebars
+pug is an expres feature not nodes
+we set the global cnfiguration value in the server using express app
+
