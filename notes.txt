@@ -57,3 +57,5 @@ we set the global cnfiguration value in the server using express app
 we need ti pass the json model intot the templating engine
 template engine are no the part of the server
 
+----converting html files to pug---
+

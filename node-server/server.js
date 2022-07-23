@@ -31,7 +31,10 @@ app.use(clientroutes);
 app.use('/admin',adminroutes.route); /////will go to the method starting with the path /admin
 app.use((req,res,next)=>{
    // res.status(404).send("<h1> 404 Page not found</h1>");
-   res.sendFile(path.join(rootDir,'../','views','404.html'));
+  // res.sendFile(path.join(rootDir,'../','views','404.html'));
+
+  /////sending th pug file
+  res.status(404).render('404')
 });
 // app.use('/add-product',(req,res,next)=>{
 //     res.send('<form action="/product" method="POST"><input type="text" name="title"><button type="submit">Add Product</button></form>')
