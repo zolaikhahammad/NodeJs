@@ -59,3 +59,11 @@ template engine are no the part of the server
 
 ----converting html files to pug---
 
+-----using layout with pug-----
+we can use place holders so that others views can place their content
+we will inject this palyout pug in all other pugs
+block is the name of the hook. hooks are placeholders
+use the extends keyword in outher pug layout to add the this main layout
+
+
+
