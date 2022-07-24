@@ -80,3 +80,14 @@ we cannot add css dynamically in handlebars layout but we can add place holders
 for html content using three curly bracess {{{ body }}} as exactly
 
 
+-------Working with EJS-------
+
+just set the view engine to ejs
+extending functionality of pug regarding the javascript code, comparison of condiotn like pug
+and use html like handlbars
+does not supprt layouts but we can find some reusable building blocks
+we use <%=placeHolder%> to replace the dynamic content 
+<%= to render variable
+<%- to render html
+
+

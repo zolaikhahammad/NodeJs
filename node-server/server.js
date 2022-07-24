@@ -14,12 +14,13 @@ const bodyparser=require('body-parser');
 const path=require('path');
 
 ///handlebars
-const expressHbs=require('express-handlebars');
+//const expressHbs=require('express-handlebars');
 ///handlebars
 const app=express(); ///// express function express framework, all about middleware
 
-app.engine('handlebars',expressHbs({layoutDirs:'views/layout/',defaultLayout:'main-layout'})); ///
-app.set('view engine','handlebars');
+//app.engine('handlebars',expressHbs({layoutDirs:'views/layout/',defaultLayout:'main-layout'})); /// engine for hbs
+//app.set('view engine','handlebars');
+app.set('view engine','ejs');
 app.set('views','views');
 
 
