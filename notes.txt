@@ -91,3 +91,8 @@ we use <%=placeHolder%> to replace the dynamic content
 <%- to render html
 
 
+render method will always look for the registered view engine 
+view-engine is a reserved configuration key understood by express js
+then refer name of the view and can define object which are passed as variable in the template
+
+
