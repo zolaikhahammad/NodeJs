@@ -66,4 +66,17 @@ block is the name of the hook. hooks are placeholders
 use the extends keyword in outher pug layout to add the this main layout
 
 
+-------working with handleBaa------
+install the latest version by npm install --save express-handlebars@3.0 
+pugs are built in engine but handlebars are not so we need
+to import express handlbars module and intinitalize engine
+uses normal html with custom syntax
+we cannot use if else condition in handlebars we need to send the condition in the json
+less logic in the template more logic in the server side
+
+-------Adding Layout in HandleBars------
+we need to set the path of layout in the handlbars object intinitalization 
+we cannot add css dynamically in handlebars layout but we can add place holders
+for html content using three curly bracess {{{ body }}} as exactly
+
 

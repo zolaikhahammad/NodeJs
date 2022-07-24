@@ -12,10 +12,22 @@
 const express=require('express');
 const bodyparser=require('body-parser');
 const path=require('path');
+
+///handlebars
+const expressHbs=require('express-handlebars');
+///handlebars
 const app=express(); ///// express function express framework, all about middleware
-app.set('view engine','pug'); ///set()allows us to set value globally on our express application
+
+app.engine('handlebars',expressHbs({layoutDirs:'views/layout/',defaultLayout:'main-layout'})); ///
+app.set('view engine','handlebars');
+app.set('views','views');
+
+
+///pug
+//app.set('view engine','pug'); ///set()allows us to set value globally on our express application
 ////pug auto register itself 
-app.set('views','views'); ////we can tell where to find views
+//app.set('views','views'); ////we can tell where to find views
+//pug
 const adminroutes=require('./admin.js');
 const clientroutes=require('./shop.js');
 const rootDir=require('../helpers/path');
@@ -34,7 +46,7 @@ app.use((req,res,next)=>{
   // res.sendFile(path.join(rootDir,'../','views','404.html'));
 
   /////sending th pug file
-  res.status(404).render('404')
+  res.status(404).render('404',{pageTitle:'Page not found'})
 });
 // app.use('/add-product',(req,res,next)=>{
 //     res.send('<form action="/product" method="POST"><input type="text" name="title"><button type="submit">Add Product</button></form>')
