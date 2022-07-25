@@ -31,7 +31,6 @@ app.set('views','views');
 //pug
 const adminroutes=require('./admin.js');
 const clientroutes=require('./shop.js');
-const rootDir=require('../helpers/path');
 // app.use((req,res,next)=>{
 //     console.log('in the middleware');
 //     next(); ////we have to call next to allow the request to travel on the next middleware in the line
@@ -41,7 +40,7 @@ const rootDir=require('../helpers/path');
 app.use(bodyparser.urlencoded({extended:false}));
 app.use(express.static(path.join(__dirname,'../','public'))); ////middleware serve static files, add path to folder add read accesss to
 app.use(clientroutes);
-app.use('/admin',adminroutes.route); /////will go to the method starting with the path /admin
+app.use('/admin',adminroutes); /////will go to the method starting with the path /admin
 app.use((req,res,next)=>{
    // res.status(404).send("<h1> 404 Page not found</h1>");
   // res.sendFile(path.join(rootDir,'../','views','404.html'));
