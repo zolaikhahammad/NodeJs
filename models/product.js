@@ -11,12 +11,18 @@ const getProductsFromFile=cb=>{
             if(err){
                 cb([]);
             }
-            return cb(JSON.parse(fileContent));
+            else{
+                return cb(JSON.parse(fileContent));
+            }
+
         });
 }
 module.exports=class Product{
-    constructor(_title){
+    constructor(_title,_imageUrl,_description,_price){
         this.title=_title;
+        this.imageUrl=_imageUrl;
+        this.description=_description;
+        this.price=_price;
     }
 
     save(){
