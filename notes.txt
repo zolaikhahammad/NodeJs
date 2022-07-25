@@ -95,3 +95,5 @@ we use <%=placeHolder%> to replace the dynamic content
 create a new js file and aadd the request function and name it as
 export.functiionName={}
 we just adding the reference of the function
+
+-----Adding Product Model----
