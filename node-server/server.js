@@ -12,7 +12,7 @@
 const express=require('express');
 const bodyparser=require('body-parser');
 const path=require('path');
-
+const pageNotFoundController=require('../controllers/404.js')
 ///handlebars
 //const expressHbs=require('express-handlebars');
 ///handlebars
@@ -41,13 +41,7 @@ app.use(bodyparser.urlencoded({extended:false}));
 app.use(express.static(path.join(__dirname,'../','public'))); ////middleware serve static files, add path to folder add read accesss to
 app.use(clientroutes);
 app.use('/admin',adminroutes); /////will go to the method starting with the path /admin
-app.use((req,res,next)=>{
-   // res.status(404).send("<h1> 404 Page not found</h1>");
-  // res.sendFile(path.join(rootDir,'../','views','404.html'));
-
-  /////sending th pug file
-  res.status(404).render('404',{pageTitle:'Page not found'})
-});
+app.use(pageNotFoundController.pageNotFound);
 // app.use('/add-product',(req,res,next)=>{
 //     res.send('<form action="/product" method="POST"><input type="text" name="title"><button type="submit">Add Product</button></form>')
 //     //res.send("<h1> Product Page</h1>"); ///allows us to send response of type ay
