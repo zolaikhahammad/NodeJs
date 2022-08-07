@@ -10,3 +10,4 @@ exports.getAllProduct=(req,res,next)=>{
             path:'/admin/products'});
     });
 }
+

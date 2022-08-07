@@ -1,4 +1,5 @@
 const Product=require('../models/product')
+const Cart=require('../models/carts.js')
 exports.getCartView=(req,res,next)=>{
     res.render('shop/cart',
     {
@@ -13,6 +14,14 @@ exports.getOrdersView=(req,res,next)=>{
         path:'/orders',
     });
 }
+exports.PostCart=(req,res,next)=>{
+    var prodId=req.body.productId;
+    Product.findById(prodId,(product)=>{
+        Cart.addproduct(prodId,product.price)
+    });
+    console.log(prodId);
+
+}
 exports.getProductsView=(req,res,next)=>{
     const products=Product.fetchAll(products=>{
         res.render('shop/products-list',
@@ -24,12 +33,40 @@ exports.getProductsView=(req,res,next)=>{
             path:'/products'});
     });
 }
+exports.getProduct=(req,res,next)=>{
+    const products=Product.fetchAll(products=>{
+        const prodId=req.params.productId;
+        Product.findById(prodId,_product=>{
+            res.render('shop/product-detail',
+            {
+                product:_product,
+                pageTitle:'Product Details',
+                path:''
+            });
+        })
+    });
+}
 exports.getAddProduct = (req,res,next)=>{
-    res.render('admin/add-product',
+    res.render('admin/edit-product',
         {
             pageTitle: 'add product',
             path: '/admin/add-product',
             productCSS: true, active_product: true
+        });
+ }
+ exports.getEditProduct = (req,res,next)=>{
+    const editMode=req.query.edit;
+        const products=Product.fetchAll(products=>{
+            const prodId=req.params.productId;
+            Product.findById(prodId,_product=>{
+                res.render('admin/edit-product',
+                {
+                    product:_product,
+                    pageTitle:'Edit Product',
+                    path:'admin/edit-product',
+                    editing:editMode
+                });
+            })
         });
  }
  exports.postAddProduct=(req,res,next)=>{
