@@ -47,11 +47,14 @@ exports.getProduct=(req,res,next)=>{
     });
 }
 exports.getAddProduct = (req,res,next)=>{
-    res.render('admin/edit-product',
+    res.render('admin/add-product',
         {
             pageTitle: 'add product',
             path: '/admin/add-product',
-            productCSS: true, active_product: true
+            pageTitle:'Add Product',
+            productCSS: true, 
+            active_product: true,
+            editing:false
         });
  }
  exports.getEditProduct = (req,res,next)=>{
