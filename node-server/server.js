@@ -13,6 +13,8 @@ const express=require('express');
 const bodyparser=require('body-parser');
 const path=require('path');
 const pageNotFoundController=require('../controllers/404.js')
+const db=require('../path/database')
+const sequelize=require('../path/database')
 ///handlebars
 //const expressHbs=require('express-handlebars');
 ///handlebars
@@ -22,7 +24,6 @@ const app=express(); ///// express function express framework, all about middlew
 //app.set('view engine','handlebars');
 app.set('view engine','ejs');
 app.set('views','views');
-
 
 ///pug
 //app.set('view engine','pug'); ///set()allows us to set value globally on our express application
@@ -55,7 +56,7 @@ app.use(pageNotFoundController.pageNotFound);
 //     console.log(req.body);
 //     res.redirect('/'); 
 // });
-
+sequelize.sync().then().catch(err=>{console.log(err)});
 app.listen(3000);
 // const server=http.createServer(app);
 // server.listen(3000); /////starts a process will keep running to listen incoming request

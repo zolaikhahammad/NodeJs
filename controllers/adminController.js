@@ -1,13 +1,14 @@
 const Product=require('../models/product');
 exports.getAllProduct=(req,res,next)=>{
-    const products=Product.fetchAll(products=>{
+    Product.fetchAll().then(([rowData,fieldData])=>{
         res.render('admin/products',
-        {
-            prods:products,
-            hasProducts:products.length>0
-            ,active_shop:true,
+            {
+                prods:rowData,
+                hasProducts:rowData.length>0
+                ,active_shop:true,
             pageTitle:'admin products',
             path:'/admin/products'});
-    });
+
+    }).catch(err=>{console.log(err)});
 }
 
